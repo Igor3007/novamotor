@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         if (window.initSendForm) {
                             window.initSendForm(instance, () => popup.close());
                         }
-                        const {MaskInput} = Maska;
+                        //const {MaskInput} = Maska;
                         new MaskInput("[data-maska]");
                     });
                 })
