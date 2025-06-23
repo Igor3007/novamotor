@@ -102,7 +102,8 @@ class Product extends Model  implements HasMedia
     public function images() : HasMany {
         return $this->hasMany(\Spatie\MediaLibrary\MediaCollections\Models\Media::class, 'model_id','id')
             ->where('model_type','=', self::class)
-            ->where('collection_name', '=', 'default');
+            ->where('collection_name', '=', 'default')
+            ->orderBy('order_column');
     }
 
     public function properties() : BelongsToMany {
