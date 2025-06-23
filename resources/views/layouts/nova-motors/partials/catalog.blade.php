@@ -13,7 +13,8 @@
                     <h2><a href="{{$category->url}}">{{$category->title}}</a></h2>
                     {!! $category->description !!}
                 </div>
-                @if($category->products->count() > 0)
+                {{--
+                @if($category->products && $category->products->count() > 0)
                     <div class="card-catalog__content-list">
                         <h3>Наименования моделей:</h3>
                         <ul>
@@ -23,6 +24,7 @@
                         </ul>
                     </div>
                 @endif
+                --}}
                 <div class="card-catalog__content-action">
                     <a href="{{$category->url}}" class="btn-blue">Смотреть все {{$category->firstLowerCharTitle}}</a>
                     @if($category->price_list)

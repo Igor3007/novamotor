@@ -14,7 +14,7 @@
                 <div class="contacts__wrapper">
                     <div class="contacts__content">
                         <div class="contacts__content-heading">
-                            <h1>{{$page->title}}</h1>
+                            <h1>{{$h1}}</h1>
                         </div>
                         <div class="contacts__content-info">
                             @if($settings->phones)

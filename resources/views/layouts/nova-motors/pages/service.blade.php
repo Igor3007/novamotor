@@ -12,7 +12,7 @@
 
         <section class="service">
             <div class="_container service__container">
-                <h1>{{$page->title}}</h1>
+                <h1>{{$h1}}</h1>
                 <div class="service__wrapper">
                     <div class="service__content">
                         <div class="service__content-cards">

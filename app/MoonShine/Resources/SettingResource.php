@@ -70,7 +70,6 @@ class SettingResource extends ModelResource
                 Text::make(__('moonshine.fields.footer_text_left'), 'footer_text_left'),
                 Text::make(__('moonshine.fields.footer_text_right'), 'footer_text_right'),
 
-                Text::make(__('moonshine.fields.catalog_h1'), 'catalog_h1'),
                 Number::make(__('moonshine.fields.catalog_quantity_word'), 'catalog_quantity_word'),
 
                 Json::make(__('moonshine.fields.worktime'), 'worktimes')

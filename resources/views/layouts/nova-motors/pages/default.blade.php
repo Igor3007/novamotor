@@ -11,7 +11,7 @@
 
         <section class="buy">
             <div class="_container buy__container">
-                <h1>{{$page->title}}</h1>
+                <h1>{{$h1}}</h1>
                 {!! $page->text !!}
             </div>
         </section>

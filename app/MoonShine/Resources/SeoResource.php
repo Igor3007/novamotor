@@ -58,6 +58,8 @@ class SeoResource extends ModelResource
                 Text::make(__('moonshine.fields.title'), 'title')
                     ->required(),
 
+                Text::make(__('moonshine.fields.h1'), 'h1'),
+
                 Text::make(__('moonshine.fields.description'), 'description'),
 
                 Text::make('Keywords'),
@@ -80,6 +82,8 @@ class SeoResource extends ModelResource
 
             Text::make(__('moonshine.fields.title'), 'title')
                 ->required(),
+
+            Text::make(__('moonshine.fields.h1'), 'h1'),
 
             Text::make(__('moonshine.fields.description'), 'description'),
 

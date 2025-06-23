@@ -11,7 +11,7 @@
 
         <section class="about">
             <div class="_container about__container">
-                <h1>{{$page->title}}</h1>
+                <h1>{{$h1}}</h1>
                 <div class="about__wrapper">
                     <div class="about__content">
                         {!! $page->text !!}

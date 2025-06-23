@@ -9,7 +9,7 @@
         </section>
         <section class="catalog">
             <div class="_container catalog__container">
-                <h1>{{$settings->catalog_h1}}</h1>
+                <h1>{{$h1}}</h1>
                 @include('layouts.nova-motors.partials.catalog')
             </div>
         </section>

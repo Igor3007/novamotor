@@ -101,7 +101,7 @@
             <div class="_container formated__container">
                 <div class="formated__wrapper">
                     <div class="formated__heading">
-                        <h1>{{$mainPageSettings->h1}}</h1>
+                        <h1>{{$h1}}</h1>
                     </div>
                     <div class="formated__content">
                         @seoText('')

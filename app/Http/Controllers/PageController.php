@@ -35,16 +35,23 @@ class PageController extends Controller
             ->orderBy('sorting')
             ->get()->tree();
 
-        $categories = Category::query()->with('products')->active()->get();
-        foreach ($categories as &$category) {
-            $category->products = $category->products->take(20);
-        }
+        $categories = Category::query()
+//            ->with('products')
+            ->active()->get();
+//        foreach ($categories as &$category) {
+//            $category->products = $category->products->take(20);
+//        }
 
         $banners = Banner::query()->active()->orderBy('sorting')->get();
 
         $advantages = Advantage::query()->orderBy('sorting')->where('active', 1)->get();
 
         $socialServices = SocialService::query()->active()->orderBy('sorting')->get();
+
+        $h1 = '';
+        if(Seo::meta()->model()->id) {
+            $h1 = Seo::meta()->model()->h1;
+        }
 
         return view('layouts.nova-motors.home', compact(
             'settings',
@@ -54,6 +61,7 @@ class PageController extends Controller
             'advantages',
             'mainPageSettings',
             'socialServices',
+            'h1',
         ));
     }
 
@@ -69,12 +77,15 @@ class PageController extends Controller
         $categories = Category::query()->with('products')->active()->get();
         $socialServices = SocialService::query()->active()->orderBy('sorting')->get();
 
+
+
         $data = [
             'page' => $page,
             'settings' => $settings,
             'menu' => $menu,
             'categories' => $categories,
             'socialServices' => $socialServices,
+            'h1' => Seo::meta()->model()->id && Seo::meta()->model()->h1 ? Seo::meta()->model()->h1 : $page->title
         ];
 
         switch ($slug) {

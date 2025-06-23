@@ -12,7 +12,7 @@
 
         <section class="docs">
             <div class="_container docs__container">
-                <h1>{{$page->title}}</h1>
+                <h1>{{$h1}}</h1>
                 <div class="docs__wrapper">
                     @foreach($documentGroups as $group)
                         @if($group->documents->count() == 0) @continue @endif

@@ -11,7 +11,7 @@
         <section class="vacancies">
             <div class="_container vacancies__container">
                 <div class="vacancies__heading">
-                    <h1>{{$page->title}}</h1>
+                    <h1>{{$h1}}</h1>
                 </div>
                 @foreach($vacancies as $i => $vacancy)
                     <div class="vacancies__row @if($i == $vacancies->count() - 1) vacancies__row-last @endif">

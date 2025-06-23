@@ -22,7 +22,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <h1>{{$category->title}}</h1>
+                        <h1>{{$h1}}</h1>
                         <div class="category__content-info info-category">
                             <div class="info-category__actions">
                                 <button class="btn-blue get-modal--consultation" data-popup="ajax" data-url="/form/consultation">

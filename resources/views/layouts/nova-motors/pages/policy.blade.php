@@ -12,7 +12,7 @@
         <section class="policy">
             <div class="_container policy__container">
                 <div class="policy__heading">
-                    <h1>{{$page->title}}</h1>
+                    <h1>{{$h1}}</h1>
                     {!! $page->text !!}
                 </div>
                 @foreach($blocks as $block)

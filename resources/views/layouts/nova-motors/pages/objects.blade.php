@@ -11,7 +11,7 @@
 
         <section class="objects">
             <div class="_container objects__container">
-                <h1>{{$page->title}}</h1>
+                <h1>{{$h1}}</h1>
                 <div class="objects__cards">
                     @foreach($objects as $object)
                         <div class="objects__card">

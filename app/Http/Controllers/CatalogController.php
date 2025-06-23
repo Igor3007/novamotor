@@ -31,8 +31,10 @@ class CatalogController extends Controller
 
         $socialServices = SocialService::query()->active()->orderBy('sorting')->get();
 
-        if(!Seo::meta()->model()->id) {
-            seo()->title($settings->catalog_h1);
+        $h1 = '';
+
+        if(Seo::meta()->model()->id && Seo::meta()->model()->h1) {
+            $h1 = Seo::meta()->model()->h1;
         }
 
         return view('layouts.nova-motors.catalog', compact(
@@ -42,6 +44,7 @@ class CatalogController extends Controller
             'advantages',
             'faqs',
             'socialServices',
+            'h1'
         ));
     }
 
@@ -67,6 +70,13 @@ class CatalogController extends Controller
 
         $socialServices = SocialService::query()->active()->orderBy('sorting')->get();
 
+        if(Seo::meta()->model()->id && Seo::meta()->model()->h1) {
+            $h1 = Seo::meta()->model()->h1;
+        }
+        else{
+            $h1 = $category->title;
+        }
+
         if(!Seo::meta()->model()->id) {
             seo()->title($category->title);
         }
@@ -84,6 +94,7 @@ class CatalogController extends Controller
             'properties',
             'products',
             'socialServices',
+            'h1'
         ));
     }
 
@@ -105,6 +116,16 @@ class CatalogController extends Controller
 
         $socialServices = SocialService::query()->active()->orderBy('sorting')->get();
 
+
+
+        if(Seo::meta()->model()->id && Seo::meta()->model()->h1) {
+            $h1 = Seo::meta()->model()->h1;
+        }
+        else {
+            $h1 = $product->full_title ?? $product->title;
+        }
+
+
         if(!Seo::meta()->model()->id) {
             seo()->title($product->title);
         }
@@ -119,6 +140,7 @@ class CatalogController extends Controller
             'analogProducts',
             'tiles',
             'socialServices',
+            'h1'
         ));
     }
 }

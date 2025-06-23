@@ -14,7 +14,7 @@
                 <div class="product__wrapper">
                     <div class="product__content">
                         <div class="product__content-heading">
-                            <h1>{{$product->full_title ?? $product->title}}</h1>
+                            <h1>{{$h1}}</h1>
                             <div class="product__content-heading-panel">
                                 @if(count($analogProducts) > 0)
                                     <div class="product__content-heading-panel-item">

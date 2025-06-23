@@ -32,7 +32,6 @@ class MainPageSettingResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make(__('moonshine.fields.h1'), 'h1'),
             Text::make(__('moonshine.fields.form_title'), 'form_title'),
             Text::make(__('moonshine.fields.about_btn_title'), 'about_btn_title'),
             Text::make(__('moonshine.fields.about_btn_url'), 'about_btn_url'),
@@ -55,7 +54,6 @@ class MainPageSettingResource extends ModelResource
                     ->addOption('file_manager', 'laravel-filemanager'),
                 Text::make(__('moonshine.fields.about_btn_title'), 'about_btn_title'),
                 Text::make(__('moonshine.fields.about_btn_url'), 'about_btn_url'),
-                Text::make(__('moonshine.fields.h1'), 'h1'),
             ])
         ];
     }
@@ -76,7 +74,6 @@ class MainPageSettingResource extends ModelResource
             Text::make(__('moonshine.fields.about_btn_title'), 'about_btn_title'),
             Text::make(__('moonshine.fields.about_btn_url'), 'about_btn_url'),
             Text::make(__('moonshine.fields.adv_text'), 'adv_text'),
-            Text::make(__('moonshine.fields.h1'), 'h1'),
         ];
     }
 
