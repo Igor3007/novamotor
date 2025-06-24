@@ -1,5 +1,7 @@
 import Splide from "@splidejs/splide";
 import { Mask, MaskInput } from "maska"
+
+
 document.querySelectorAll('.faq').forEach(container => {
     const accordionHeads = container.querySelectorAll('.accordion__item');
     const icons = container.querySelectorAll('.accordion__head .icon');
@@ -184,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScrollY = scrollY;
     };
 
-    window.addEventListener("scroll", handleScroll, {passive: true});
+    window.addEventListener("scroll", handleScroll, { passive: true });
 });
 
 
@@ -393,16 +395,16 @@ function validateForm(form) {
                         error.classList.remove('.is-error');
                     });
 
-                    if(form.querySelector('.success')) {
+                    if (form.querySelector('.success')) {
                         form.querySelector('.success').remove();
                     }
 
-                    if(!data.success) {
+                    if (!data.success) {
                         data.errors.forEach(inputName => {
-                            let input = form.querySelector('[name="'+inputName+'"]');
-                            if(input) {
+                            let input = form.querySelector('[name="' + inputName + '"]');
+                            if (input) {
                                 input.classList.add('is-error');
-                                if(input.closest('.form-field')) {
+                                if (input.closest('.form-field')) {
                                     input.closest('.form-field').classList.add('is-error');
                                 }
                             }
@@ -497,4 +499,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initializeMaps();
 });
+
+class Preloader {
+
+    constructor() {
+        this.$el = this.init()
+        this.state = false
+    }
+
+    init() {
+        const el = document.createElement('div')
+        el.classList.add('loading')
+        el.innerHTML = '<div class="indeterminate"></div>';
+        document.body.append(el)
+        return el;
+    }
+
+    load() {
+
+        this.state = true;
+
+        setTimeout(() => {
+            if (this.state) this.$el.classList.add('load')
+        }, 300)
+    }
+
+    stop() {
+
+        this.state = false;
+
+        setTimeout(() => {
+            if (this.$el.classList.contains('load'))
+                this.$el.classList.remove('load')
+        }, 200)
+    }
+
+}
+
+window.preloader = new Preloader();
 
