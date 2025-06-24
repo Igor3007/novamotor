@@ -116,26 +116,7 @@
     </section>
     @endif
 
-    @if($category->seo_block_title || $category->seo_block_description)
-    <section class="formated">
-        <div class="_container formated__container">
-            <div class="formated__wrapper">
-                @if($category->seo_block_title)
-                <div class="formated__heading">
-                    <h1>{{$category->seo_block_title}}</h1>
-                </div>
-                @endif
-                @if(strip_tags($category->seo_block_description))
-                <div class="formated__content">
-                    {!! $category->seo_block_description !!}
-                </div>
-                @endif
-            </div>
-        </div>
-    </section>
-    @endif
-
-
+    <x-blocks.seo-block/>
 
     @include('layouts.nova-motors.partials.faqs')
 </main>

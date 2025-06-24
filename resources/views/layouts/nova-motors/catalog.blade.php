@@ -15,9 +15,9 @@
         </section>
 
         @include('layouts.nova-motors.partials.advantages')
+
+        <x-blocks.seo-block/>
+
         @include('layouts.nova-motors.partials.faqs')
-
-
-
     </main>
 @endsection

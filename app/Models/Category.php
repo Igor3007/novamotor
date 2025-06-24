@@ -15,7 +15,7 @@ class Category extends Model
 
     public function scopeCatalog(Builder $query): Builder
     {
-        return $query->with('products')->active()->orderBy('sorting');
+        return $query->with('products')->active()->orderBy('sorting')->orderBy('title');
     }
 
     protected function url(): Attribute
@@ -49,6 +49,6 @@ class Category extends Model
 
     public function products(): HasMany
     {
-        return $this->hasMany(Product::class)->active()->orderBy('sorting');
+        return $this->hasMany(Product::class)->active()->orderBy('sorting')->orderBy('title');
     }
 }

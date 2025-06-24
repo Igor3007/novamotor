@@ -84,10 +84,6 @@ class CategoryResource extends ModelResource
                 TinyMce::make(__('moonshine.fields.common_props'), 'common_props')
                     ->addOption('file_manager', 'laravel-filemanager'),
 
-                Text::make(__('moonshine.fields.seo_block_title'), 'seo_block_title')->nullable(),
-                TinyMce::make(__('moonshine.fields.seo_block_description'), 'seo_block_description')
-                    ->addOption('file_manager', 'laravel-filemanager')->nullable(),
-
                 File::make(__('moonshine.fields.price_list'), 'price_list')->removable(),
                 Text::make(__('moonshine.fields.price_list_title'), 'price_list_title'),
 
