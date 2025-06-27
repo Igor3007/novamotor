@@ -31,5 +31,7 @@
         </section>
 
         @include('layouts.nova-motors.partials.faqs')
+
+        <x-blocks.seo-block/>
     </main>
 @endsection

@@ -60,9 +60,13 @@ class SeoResource extends ModelResource
 
                 Text::make(__('moonshine.fields.h1'), 'h1'),
 
+
+
                 Text::make(__('moonshine.fields.description'), 'description'),
 
                 Text::make('Keywords'),
+
+                Text::make(__('moonshine.fields.seo_block_title'), 'seo_block_title'),
 
                 TinyMce::make(__('moonshine.fields.text'), 'text')
                     ->addOption('file_manager', 'laravel-filemanager')
@@ -84,6 +88,7 @@ class SeoResource extends ModelResource
                 ->required(),
 
             Text::make(__('moonshine.fields.h1'), 'h1'),
+            Text::make(__('moonshine.fields.seo_block_title'), 'seo_block_title'),
 
             Text::make(__('moonshine.fields.description'), 'description'),
 

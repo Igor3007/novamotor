@@ -62,6 +62,7 @@ class CatalogController extends Controller
             ->with('categoryProperties','properties')
             ->where('category_id','=',$category->id)
             ->orderBy('sorting')
+            ->orderBy('title')
             ->active()
             ->get();
 
@@ -79,10 +80,6 @@ class CatalogController extends Controller
 
         if(!Seo::meta()->model()->id) {
             seo()->title($category->title);
-        }
-
-        if(seo()->meta()->text()) {
-            $category->seo_block_description = seo()->meta()->text();
         }
 
         return view('layouts.nova-motors.category', compact(

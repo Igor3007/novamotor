@@ -48,11 +48,6 @@ class PageController extends Controller
 
         $socialServices = SocialService::query()->active()->orderBy('sorting')->get();
 
-        $h1 = '';
-        if(Seo::meta()->model()->id) {
-            $h1 = Seo::meta()->model()->h1;
-        }
-
         return view('layouts.nova-motors.home', compact(
             'settings',
             'menu',
@@ -61,7 +56,6 @@ class PageController extends Controller
             'advantages',
             'mainPageSettings',
             'socialServices',
-            'h1',
         ));
     }
 

@@ -97,19 +97,6 @@
 
         @include('layouts.nova-motors.partials.advantages')
 
-        <section class="formated">
-            <div class="_container formated__container">
-                <div class="formated__wrapper">
-                    <div class="formated__heading">
-                        <h1>{{$h1}}</h1>
-                    </div>
-                    <div class="formated__content">
-                        @seoText('')
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
+        <x-blocks.seo-block/>
     </main>
 @endsection

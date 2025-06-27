@@ -46,5 +46,7 @@
                 </div>
             </div>
         </section>
+
+        <x-blocks.seo-block/>
     </main>
 @endsection
