@@ -661,7 +661,7 @@
                 animatedBlock.style.animation = originalAnimation;
                 animatedBlock.style.display = originalDisplay;
 
-                template.remove()
+                //template.remove()
                 window.preloader.stop()
             });
         }, 100)
