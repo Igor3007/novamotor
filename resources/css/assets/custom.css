@@ -29,6 +29,10 @@
     text-align: center;
 }
 
+.pdf-wrapper .slider-product li a picture {
+    width: 100%;
+}
+
 .loading {
     width: auto;
     overflow: hidden;
