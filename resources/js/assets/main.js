@@ -538,3 +538,32 @@ class Preloader {
 
 window.preloader = new Preloader();
 
+document.addEventListener('DOMContentLoaded', function (event) {
+
+
+    if (document.querySelector('.formated img')) {
+
+        function openGalleryProduct(index, e) {
+            const img = e.target.closest('img')
+            const arrImage = [];
+
+            img.forEach(image => {
+                arrImage.push(image.getAttribute('src'))
+            })
+
+            const instance = new FsLightbox();
+            instance.props.dots = true;
+            instance.props.type = "image";
+            instance.props.sources = arrImage;
+            instance.open(index)
+        }
+
+        document.querySelectorAll('.formated img').forEach((item) => {
+            item.forEach((el, index) => {
+                el.addEventListener('click', e => openGalleryProduct(index, e))
+            })
+        })
+
+    }
+});
+
