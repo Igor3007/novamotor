@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     if (document.querySelector('.formated img')) {
 
         function openGalleryProduct(index, e) {
-            const img = e.target.closest('img')
+            const img = e.target.closest('.formated').querySelectorAll('img')
             const arrImage = [];
 
             img.forEach(image => {
@@ -558,10 +558,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
             instance.open(index)
         }
 
-        document.querySelectorAll('.formated img').forEach((item) => {
-            item.forEach((el, index) => {
-                el.addEventListener('click', e => openGalleryProduct(index, e))
-            })
+        document.querySelectorAll('.formated img').forEach((item, index) => {
+            item.addEventListener('click', e => openGalleryProduct(index, e))
         })
 
     }
