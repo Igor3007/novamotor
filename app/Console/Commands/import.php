@@ -29,7 +29,56 @@ class import extends Command
      */
     public function handle()
     {
+
+        $files = scandir('/var/www/brodeks_dev__usr/data/www/nova-motors-back.promicom.xyz/b');
+        foreach($files as $file) {
+            if(in_array($file,['.','..'])) continue;
+
+            $pathinfo = pathinfo($file);
+
+            $name = $pathinfo['filename'];
+
+            $products = Product::query()->with('images')->where('title','LIKE','%'.$name.'%')->get();
+            if(!$products->count()) {
+                dump($file);
+            }
+            else{
+                foreach($products as $product) {
+
+                    $image = Storage::drive('public')->putFile('photos/products', new File($product->images->last()->getPath()));
+
+                    $product->sizes = '<p><img src="/storage/'.$image.'"></p>';
+                    $product->save();
+
+
+                    /*if($product->images->count() == 7) {
+                        $product->images[5]->delete();
+                    }*/
+
+
+                    //$product->addMedia('/var/www/brodeks_dev__usr/data/www/nova-motors-back.promicom.xyz/b/'.$file)->preservingOriginal()->toMediaCollection();
+                }
+            }
+
+
+        }
+
+        dd(1);
+
+        /*$products = Product::query()->with('images')->get();
+        foreach($products as $product) {
+            if(isset($product->images[5])) {
+                $image = Storage::drive('public')->putFile('photos/products', new File($product->images[5]->getPath()));
+
+                $product->sizes = '<p><img src="/storage/'.$image.'"></p>';
+                $product->save();
+            }
+        }
+
+
+        dd(1);*/
 //
+
 //        dd(3);
 //        $photos = [
 //            '/var/www/brodeks_dev__usr/data/www/nova-motors-back.promicom.xyz/resources/1.jpeg',

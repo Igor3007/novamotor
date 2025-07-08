@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('title');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->string('tech_list')->nullable();
+            $table->text('tech_list')->nullable();
             $table->json('analogs')->nullable();
             $table->text('description')->nullable();
             $table->text('sizes')->nullable();

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Models;
@@ -14,7 +15,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Product extends Model  implements HasMedia
+class Product extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
@@ -45,14 +46,14 @@ class Product extends Model  implements HasMedia
     protected function formatMinPrice(): Attribute
     {
         return Attribute::make(
-            get: fn (mixed $value, array $attributes) => number_format($attributes['min_price'],2,',',' '),
+            get: fn (mixed $value, array $attributes) => number_format($attributes['min_price'], 2, ',', ' '),
         );
     }
 
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn (mixed $value, array $attributes) => route('product',['slug' => $attributes['slug']]),
+            get: fn (mixed $value, array $attributes) => route('product', ['slug' => $attributes['slug']]),
         );
     }
 
@@ -64,14 +65,16 @@ class Product extends Model  implements HasMedia
     {
         return Attribute::make(
             get: function (mixed $value, array $attributes): array {
-                if(is_null($attributes['analogs'])) return [];
+                if (is_null($attributes['analogs'])) {
+                    return [];
+                }
                 $analogs = json_decode($attributes['analogs']) ?? [];
                 $productIds = [];
-                foreach($analogs as $analog) {
+                foreach ($analogs as $analog) {
                     $productIds[] = $analog->product_id;
                 }
 
-                $products = Product::query()->active()->whereIn('id',$productIds)
+                $products = Product::query()->active()->whereIn('id', $productIds)
                     ->orderBy('sorting')->get();
 
                 $analogProducts = [];
@@ -86,32 +89,42 @@ class Product extends Model  implements HasMedia
         );
     }
 
-    public function scopeActive(Builder $query) : Builder
+    public function scopeActive(Builder $query): Builder
     {
         return $query->where('active', true);
     }
 
-    public function category() : BelongsTo {
+    public function category(): BelongsTo
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function offers() : HasMany {
+    public function offers(): HasMany
+    {
         return $this->hasMany(Offer::class)->active()->orderBy('sorting');
     }
 
-    public function images() : HasMany {
-        return $this->hasMany(\Spatie\MediaLibrary\MediaCollections\Models\Media::class, 'model_id','id')
-            ->where('model_type','=', self::class)
+    public function images(): HasMany
+    {
+        return $this->hasMany(\Spatie\MediaLibrary\MediaCollections\Models\Media::class, 'model_id', 'id')
+            ->where('model_type', '=', self::class)
             ->where('collection_name', '=', 'default')
             ->orderBy('order_column');
     }
 
-    public function properties() : BelongsToMany {
+    public function files(): BelongsToMany
+    {
+        return $this->belongsToMany(ProductFile::class);
+    }
+
+    public function properties(): BelongsToMany
+    {
         return $this->belongsToMany(Property::class)->withPivot('value')->active()->orderBy('sorting');
     }
-    public function categoryProperties() : BelongsToMany {
+    public function categoryProperties(): BelongsToMany
+    {
         return $this->belongsToMany(Property::class)->withPivot('value')
-            ->where('show_in_category','=',1)
+            ->where('show_in_category', '=', 1)
             ->active()->orderBy('sorting');
     }
 }

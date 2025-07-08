@@ -42,12 +42,14 @@
                         <div class="info-category__content">
                             {!! $category->description !!}
 
+                            {{--
                             @if($category->decoding_file)
                             <a href="{{\Illuminate\Support\Facades\Storage::url($category->decoding_file)}}" download="" class="btn-transcript">
                                 <i class="icon" style="background-image: url('/assets/images/icons/ic_transcript.svg')"></i>
                                 <span>Расшифровка условных обозначений</span>
                             </a>
                             @endif
+                            --}}
                             <div class="info-category__content-list">
                                 {!! $category->common_props !!}
                             </div>

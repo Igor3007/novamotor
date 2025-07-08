@@ -36,6 +36,7 @@ use App\MoonShine\Resources\SpecializationResource;
 use App\MoonShine\Resources\VacancyResource;
 use App\MoonShine\Resources\ServiceSettingResource;
 use App\MoonShine\Resources\AboutSettingResource;
+use App\MoonShine\Resources\ProductFileResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -70,6 +71,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 SocialServiceResource::class,
                 DocumentGroupResource::class,
                 DocumentResource::class,
+                ProductFileResource::class,
                 HowBuyBlockResource::class,
                 ObjectResource::class,
                 PolicyBlockResource::class,
@@ -77,6 +79,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 VacancyResource::class,
                 ServiceSettingResource::class,
                 AboutSettingResource::class,
+                ProductFileResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

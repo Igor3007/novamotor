@@ -35,8 +35,6 @@
             </div>
         </section>
 
-        @include('layouts.nova-motors.partials.forms.contacts')
-
         <x-blocks.seo-block/>
     </main>
 @endsection

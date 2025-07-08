@@ -6,7 +6,6 @@ namespace App\MoonShine\Resources;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
-
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\Laravel\Fields\Slug;
@@ -51,7 +50,7 @@ class ProductResource extends ModelResource
             ID::make()->sortable(),
             Text::make(__('moonshine.fields.title'), 'title')
                 ->required()->sortable(),
-            Slug::make(__('moonshine.fields.slug'),'slug')
+            Slug::make(__('moonshine.fields.slug'), 'slug')
                 ->from('title')
                 ->unique(),
             BelongsTo::make(
@@ -60,13 +59,13 @@ class ProductResource extends ModelResource
                 'title',
                 resource: CategoryResource::class
             ),
-            Number::make(__('moonshine.fields.quantity'),'quantity')
+            Number::make(__('moonshine.fields.quantity'), 'quantity')
                 ->default(0),
 
-            Number::make(__('moonshine.fields.sorting'),'sorting')
+            Number::make(__('moonshine.fields.sorting'), 'sorting')
                 ->default(0)->sortable(),
 
-            Switcher::make(__('moonshine.fields.active'),'active')->sortable(),
+            Switcher::make(__('moonshine.fields.active'), 'active')->sortable(),
         ];
     }
 
@@ -83,7 +82,7 @@ class ProductResource extends ModelResource
                     ->required(),
 
                 Text::make(__('moonshine.fields.full_title'), 'full_title'),
-                Slug::make(__('moonshine.fields.slug'),'slug')
+                Slug::make(__('moonshine.fields.slug'), 'slug')
                     ->from('title')
                     ->unique(),
 
@@ -94,38 +93,45 @@ class ProductResource extends ModelResource
                     resource: CategoryResource::class
                 ),
 
-                TinyMce::make(__('moonshine.fields.description'),'description')
+                TinyMce::make(__('moonshine.fields.description'), 'description')
                     ->addOption('file_manager', 'laravel-filemanager'),
-                TinyMce::make(__('moonshine.fields.full_description'),'full_description')
+                TinyMce::make(__('moonshine.fields.full_description'), 'full_description')
                     ->addOption('file_manager', 'laravel-filemanager'),
-                TinyMce::make(__('moonshine.fields.sizes'),'sizes')
+                TinyMce::make(__('moonshine.fields.sizes'), 'sizes')
                     ->addOption('file_manager', 'laravel-filemanager'),
-                TinyMce::make(__('moonshine.fields.documentation'),'documentation')
+                TinyMce::make(__('moonshine.fields.documentation'), 'documentation')
                     ->addOption('file_manager', 'laravel-filemanager'),
+
+                BelongsToMany::make(
+                    __('moonshine.fields.files'),
+                    'files','name',
+                    resource: ProductFileResource::class
+                ),
+
 
                 Json::make(__('moonshine.fields.analogs'), 'analogs')
                     ->fields([
                         Select::make(__('moonshine.fields.product'), 'product_id')
-                            ->options(Product::query()->pluck('title','id')->all())
+                            ->options(Product::query()->pluck('title', 'id')->all())
                             ->nullable()
                             ->searchable()
                     ]),
 
 
-                Number::make(__('moonshine.fields.quantity'),'quantity')
+                Number::make(__('moonshine.fields.quantity'), 'quantity')
                     ->default(0),
 
-                File::make(__('moonshine.fields.tech_list'),'tech_list')->removable(),
-                Image::make(__('moonshine.fields.tech_list_photo'),'tech_list_photo')->removable(),
+                File::make(__('moonshine.fields.tech_list'), 'tech_list')->removable(),
+                Image::make(__('moonshine.fields.tech_list_photo'), 'tech_list_photo')->removable(),
 
                 MediaLibrary::make(__('moonshine.fields.photo'), 'default')->multiple()->nullable()->removable(),
 
-                Number::make(__('moonshine.fields.sorting'),'sorting')
+                Number::make(__('moonshine.fields.sorting'), 'sorting')
                     ->default(0),
 
-                Switcher::make(__('moonshine.fields.active'),'active'),
+                Switcher::make(__('moonshine.fields.active'), 'active'),
 
-                BelongsToMany::make(__('moonshine.resource.properties'),'properties','title')
+                BelongsToMany::make(__('moonshine.resource.properties'), 'properties', 'title')
                     ->nullable()
                     ->fields([
                         Text::make(__('moonshine.fields.value'), 'value'),
@@ -146,7 +152,7 @@ class ProductResource extends ModelResource
                 ->required(),
 
             Text::make(__('moonshine.fields.full_title'), 'full_title'),
-            Slug::make(__('moonshine.fields.slug'),'slug')
+            Slug::make(__('moonshine.fields.slug'), 'slug')
                 ->from('title')
                 ->unique(),
 
@@ -157,38 +163,38 @@ class ProductResource extends ModelResource
                 resource: CategoryResource::class
             ),
 
-            TinyMce::make(__('moonshine.fields.description'),'description')
+            TinyMce::make(__('moonshine.fields.description'), 'description')
                 ->addOption('file_manager', 'laravel-filemanager'),
-            TinyMce::make(__('moonshine.fields.full_description'),'full_description')
+            TinyMce::make(__('moonshine.fields.full_description'), 'full_description')
                 ->addOption('file_manager', 'laravel-filemanager'),
-            TinyMce::make(__('moonshine.fields.sizes'),'sizes')
+            TinyMce::make(__('moonshine.fields.sizes'), 'sizes')
                 ->addOption('file_manager', 'laravel-filemanager'),
-            TinyMce::make(__('moonshine.fields.documentation'),'documentation')
+            TinyMce::make(__('moonshine.fields.documentation'), 'documentation')
                 ->addOption('file_manager', 'laravel-filemanager'),
 
             Json::make(__('moonshine.fields.analogs'), 'analogs')
                 ->fields([
                     Select::make(__('moonshine.fields.product'), 'product_id')
-                        ->options(Product::query()->pluck('title','id')->all())
+                        ->options(Product::query()->pluck('title', 'id')->all())
                         ->nullable()
                         ->searchable()
                 ]),
 
 
-            Number::make(__('moonshine.fields.quantity'),'quantity')
+            Number::make(__('moonshine.fields.quantity'), 'quantity')
                 ->default(0),
 
-            File::make(__('moonshine.fields.tech_list'),'tech_list'),
+            File::make(__('moonshine.fields.tech_list'), 'tech_list'),
 
 
             MediaLibrary::make(__('moonshine.fields.photo'), 'default')->multiple()->nullable(),
 
-            Number::make(__('moonshine.fields.sorting'),'sorting')
+            Number::make(__('moonshine.fields.sorting'), 'sorting')
                 ->default(0),
 
-            Switcher::make(__('moonshine.fields.active'),'active'),
+            Switcher::make(__('moonshine.fields.active'), 'active'),
 
-            BelongsToMany::make(__('moonshine.resource.properties'),'properties','title')
+            BelongsToMany::make(__('moonshine.resource.properties'), 'properties', 'title')
                 ->nullable()
                 ->fields([
                     Text::make(__('moonshine.fields.value'), 'value'),

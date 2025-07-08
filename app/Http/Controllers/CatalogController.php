@@ -65,8 +65,7 @@ class CatalogController extends Controller
             ->orderBy('title')
             ->active()
             ->get();
-
-
+        
         $properties = Property::query()->category()->get();
 
         $socialServices = SocialService::query()->active()->orderBy('sorting')->get();

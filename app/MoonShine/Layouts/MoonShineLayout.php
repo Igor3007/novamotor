@@ -59,6 +59,7 @@ use App\MoonShine\Resources\SpecializationResource;
 use App\MoonShine\Resources\VacancyResource;
 use App\MoonShine\Resources\ServiceSettingResource;
 use App\MoonShine\Resources\AboutSettingResource;
+use App\MoonShine\Resources\ProductFileResource;
 
 final class MoonShineLayout extends CompactLayout
 {
@@ -94,6 +95,7 @@ final class MoonShineLayout extends CompactLayout
             MenuGroup::make(__('moonshine.resource.documents'), [
                 MenuItem::make(__('moonshine.resource.groups'), DocumentGroupResource::class),
                 MenuItem::make(__('moonshine.resource.documents'), DocumentResource::class),
+                MenuItem::make(__('moonshine.resource.product-files'), ProductFileResource::class),
             ]),
 
             MenuGroup::make(__('moonshine.resource.pages'), [
