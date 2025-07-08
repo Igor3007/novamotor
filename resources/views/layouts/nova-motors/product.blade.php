@@ -655,7 +655,7 @@
                 },
                 jsPDF: {
                     unit: 'px',
-                    format: [1400, 2800],
+                    format: [1400, 3500],
                     orientation: 'portrait',
                     hotfixes: ["px_scaling"],
                 }
