@@ -44,9 +44,9 @@
 
                             {{--
                             @if($category->decoding_file)
-                            <a href="{{\Illuminate\Support\Facades\Storage::url($category->decoding_file)}}" download="" class="btn-transcript">
-                                <i class="icon" style="background-image: url('/assets/images/icons/ic_transcript.svg')"></i>
-                                <span>Расшифровка условных обозначений</span>
+                            <a data-scroll=".tabs-custom__tabs" href="{{\Illuminate\Support\Facades\Storage::url($category->decoding_file)}}" download="" class="btn-transcript">
+                            <i class="icon" style="background-image: url('/assets/images/icons/ic_transcript.svg')"></i>
+                            <span>Расшифровка условных обозначений</span>
                             </a>
                             @endif
                             --}}
@@ -118,7 +118,7 @@
     </section>
     @endif
 
-    <x-blocks.seo-block/>
+    <x-blocks.seo-block />
 
     @include('layouts.nova-motors.partials.faqs')
 </main>

@@ -2,6 +2,7 @@ import Splide from "@splidejs/splide";
 import { Mask, MaskInput } from "maska"
 
 
+
 document.querySelectorAll('.faq').forEach(container => {
     const accordionHeads = container.querySelectorAll('.accordion__item');
     const icons = container.querySelectorAll('.accordion__head .icon');
@@ -161,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 const target = document.querySelector(link.getAttribute('href'));
                 const targetOffset = target.getBoundingClientRect().top + window.pageYOffset;
                 const startOffset = 0;
-                const scrollOffset = 50;
+                const scrollOffset = 90;
                 const scrollToOffset = startOffset + (targetOffset - startOffset) - scrollOffset;
                 window.scrollTo({
                     top: scrollToOffset,
@@ -174,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     easeScroll()
 })
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -563,5 +565,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
 
     }
+
+    /* =========================================
+    scroll to transcript
+    =========================================*/
+
+    if (document.querySelector('[href="#tabs-custom"]')) {
+
+
+        document.querySelector('[href="#tabs-custom"]').addEventListener('click', e => {
+            document.querySelectorAll('.tabs-custom__tab').forEach(item => {
+                if (item.querySelector('span').innerText.trim().toLowerCase() == 'расшифровка') {
+                    item.dispatchEvent(new Event('click', { bubbles: true }));
+                }
+            })
+        })
+
+
+    }
+
 });
 

@@ -97,8 +97,8 @@
                             </a>
 
                             @if($product->category->decoding_file)
-                            <a href="{{\Illuminate\Support\Facades\Storage::url($product->category->decoding_file)}}"
-                                download="" class="btn-transcript">
+                            <a href="#tabs-custom"
+                                class="btn-transcript">
                                 <i class="icon"
                                     style="background-image: url('/assets/images/icons/ic_transcript.svg')"></i>
                                 <span>Расшифровка условных обозначений</span>
@@ -183,7 +183,7 @@
     </section>
     <section class="i-product" id="motor-table">
         <div class="_container i-product__container">
-            <div class="tabs-custom">
+            <div class="tabs-custom" id="tabs-custom">
                 <div class="tabs-custom__scroller">
 
                 </div>
@@ -254,7 +254,7 @@
                 </div>
                 @if($product->sizes)
                 <div id="tab3" class="tabs-custom__tab-content">
-                    <div class="formated">
+                    <div class="formated tab-sizes">
                         {!! $product->sizes !!}
                     </div>
                 </div>
@@ -599,6 +599,10 @@
                 item.classList.add('active-content')
                 return false
             }
+            if (item.querySelector('.tab-sizes')) {
+                item.classList.add('active-content')
+                return false
+            }
             item.remove()
         });
 
@@ -661,7 +665,7 @@
                 animatedBlock.style.animation = originalAnimation;
                 animatedBlock.style.display = originalDisplay;
 
-                template.remove()
+                //template.remove()
                 window.preloader.stop()
             });
         }, 100)
