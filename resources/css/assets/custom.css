@@ -5,3 +5,7 @@
 .docs__item-heading {
     margin-bottom: 10px;
 }
+
+.pdf-wrapper img {
+    width: 100%;
+}
