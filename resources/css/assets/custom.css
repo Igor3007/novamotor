@@ -13,3 +13,8 @@
 .pdf-wrapper img {
     width: 50%;
 }
+
+.pdf-wrapper .formated.tab-sizes img {
+    width: 100%;
+    padding-top: 40px;
+}
