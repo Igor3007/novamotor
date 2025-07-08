@@ -639,6 +639,8 @@
                     .substring(0, 100) + '.pdf';
             }
 
+            const docHeight = (document.querySelector('.pdf-wrapper').clientHeight || 2500);
+
             const opt = {
                 margin: 0.5,
                 filename: filename,
@@ -655,7 +657,7 @@
                 },
                 jsPDF: {
                     unit: 'px',
-                    width: 1400,
+                    format: [1400, docHeight],
                     orientation: 'portrait',
                     hotfixes: ["px_scaling"],
                 }
