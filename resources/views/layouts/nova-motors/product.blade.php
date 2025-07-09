@@ -557,6 +557,7 @@
             '.header',
             '.product__content-heading',
             '.product__slider',
+            '.actions-product__pricing',
             '.tabs-custom'
         ]
 
@@ -632,6 +633,7 @@
 
             const heading = document.querySelector('.product__content-heading h1');
             let filename = 'info.pdf';
+
             if (heading) {
                 filename = heading.textContent
                     .trim()
@@ -667,7 +669,7 @@
                 animatedBlock.style.animation = originalAnimation;
                 animatedBlock.style.display = originalDisplay;
 
-                template.remove()
+                //template.remove()
                 window.preloader.stop()
             });
         }, 500)
