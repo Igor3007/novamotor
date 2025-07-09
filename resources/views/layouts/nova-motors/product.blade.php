@@ -672,7 +672,7 @@
                 //template.remove()
                 window.preloader.stop()
             });
-        }, 500)
+        }, 1000)
 
 
 
