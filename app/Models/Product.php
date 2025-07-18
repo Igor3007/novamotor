@@ -20,6 +20,10 @@ class Product extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
+    protected $fillable = [
+        'sorting'
+    ];
+
     protected function casts()
     {
         return [

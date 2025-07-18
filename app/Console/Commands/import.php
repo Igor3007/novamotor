@@ -29,6 +29,29 @@ class import extends Command
      */
     public function handle()
     {
+        dd(1);
+        $sort = -2;
+
+        $products = Product::query()->get()->keyBy('title')->all();
+
+        $file = storage_path('app/air.csv');
+        if (($handle = fopen($file, "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 3000, "|")) !== FALSE) {
+                ++$sort;
+
+                if($sort < 0) continue;
+
+                $products[$data[0]]->update(['sorting' => $sort]);
+
+
+
+
+            }
+            fclose($handle);
+        }
+
+        dd(file_exists($file));
+
 
         $files = scandir('/var/www/brodeks_dev__usr/data/www/nova-motors-back.promicom.xyz/b');
         foreach($files as $file) {
