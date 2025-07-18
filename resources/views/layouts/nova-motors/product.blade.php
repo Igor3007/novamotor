@@ -641,7 +641,7 @@
                     .substring(0, 100) + '.pdf';
             }
 
-            const docHeight = (document.querySelector('.pdf-wrapper').clientHeight + 100 || 2500);
+            const docHeight = (document.querySelector('.pdf-wrapper').clientHeight + 200 || 2500);
 
             const opt = {
                 margin: 0.5,
