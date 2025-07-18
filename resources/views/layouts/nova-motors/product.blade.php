@@ -651,7 +651,7 @@
                     quality: 1
                 },
                 html2canvas: {
-                    scale: 2, // Увеличиваем scale
+                    scale: 1, // Увеличиваем scale
                     useCORS: true,
                     scrollY: 0, // Убедитесь, что нет скролла
                     allowTaint: true, // Попробуйте, если useCORS не помогает
