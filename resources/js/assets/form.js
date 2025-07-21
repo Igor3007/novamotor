@@ -101,8 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function renderResults(results) {
             resultsList.innerHTML = results.map(item => `
-        <li><a href="${item.url}">${item.title}</a></li>
-      `).join('');
+                <li><a href="${item.url}">${item.title}</a></li>
+            `).join('');
+            moreResultsBtn.style.display = "none";
         }
     });
 });

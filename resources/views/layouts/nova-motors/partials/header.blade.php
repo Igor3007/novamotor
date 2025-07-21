@@ -277,7 +277,7 @@
                                     </div>
                                     <label class="search-index__input">
                                         <input type="text" name="q" autocomplete="off"
-                                            placeholder="пример вводимого текста" value="">
+                                            placeholder="Введите что хотели найти..." value="">
                                     </label>
                                     <button class="btn-blue btn-result">
                                         Найти

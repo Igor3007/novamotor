@@ -162,3 +162,15 @@
     transition: none !important;
     opacity: 1;
 }
+
+.modal-search__wrapper {
+    overflow-y: auto;
+    max-height: calc(100vh - 185px);
+    scrollbar-width: thin;
+    padding-right: 16px;
+}
+
+.search-index {
+    position: sticky;
+    top: 0;
+}
